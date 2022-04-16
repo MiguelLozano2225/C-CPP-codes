@@ -35,5 +35,6 @@ void AddMatrix(u8 Matrix1[][SIZE], u8 Matrix2[][SIZE], u8 Matrix_result[][SIZE])
     {
         for(j=0; j<SIZE; j++)
             printf("%d ",Matrix_result[i][j]);
+        printf("\n");
     }
 }

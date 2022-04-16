@@ -7,8 +7,8 @@ unsigned long int Fibo( int n);
 int main()
 {
     unsigned long int result;
-    result = Fibo(10);
-    printf("%d ", result);
+    result = Fibo(5);
+    printf("%ld \n", result);
     return 0;
 }
 

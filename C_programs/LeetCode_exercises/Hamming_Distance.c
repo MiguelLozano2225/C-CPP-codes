@@ -14,7 +14,7 @@ int main()
     test_var2_u32 = 4;
     r_u32 = hammingDistance(test_var1_u32, test_var2_u32);
 
-    printf("The result is: %d",r_u32);
+    printf("The result is: %ld\n",r_u32);
     return 0;
 }
 

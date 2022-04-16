@@ -19,7 +19,7 @@ int main()
 
     result = SumElemOnMainDiag(MyMatrix_mu8);
  
-    printf("The result is: %d", result);
+    printf("The result is: %d\n", result);
 
     return 0;
 }

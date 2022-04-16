@@ -12,7 +12,7 @@ int main()
 
     else
     {
-        printf("Perros");
+        printf("Perros\n");
     }
     
         return 0;

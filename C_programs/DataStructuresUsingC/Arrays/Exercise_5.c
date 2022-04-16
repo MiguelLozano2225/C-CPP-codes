@@ -4,8 +4,8 @@
 
 #define SIZE 3
 
-/* 
-u16 Average(u8 Matrix[][]);
+
+u16 Average(u8 Matrix[][SIZE]);
 
 int main()
 {
@@ -15,18 +15,21 @@ int main()
     for(i=0; i<SIZE; i++)
     {
         for(j=0; j<SIZE; j++)
+        {
             Matrix_mu8[i][j] = i+j+1;
+            printf("The valus in the position[%d][%d] is: %d\n", i,j,Matrix_mu8[i][j]);
+        }
     }
 
     sum_result = Average(Matrix_mu8);
-    printf("%d");
+    printf("The Average of the elemets is: %d\n", sum_result);
 
     return 0;
 }
 
-u16 Average(u8 Matrix[][])
+u16 Average(u8 Matrix[][SIZE])
 {
-    u8 **ptr;
+    u8 *ptr;
     u16 sum = 0;
     u8 counter =  SIZE*SIZE;
 
@@ -34,10 +37,11 @@ u16 Average(u8 Matrix[][])
 
     while(counter)
     {
-        sum += **Matrix;
-        Matrix++;
+        sum += *ptr;
+        ptr++;
         counter--;
     }
+    printf("The value of the sum is: %d\n", sum);
 
     return (sum / (SIZE * SIZE));
-}*/
+}
