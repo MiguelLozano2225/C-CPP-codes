@@ -7,51 +7,59 @@ all even elements of the array.*/
 
 #define SIZE    3
 
-void Twodimen_OddEven_Matrix(u8 *Array1[], u8 *Array2[], u8 *Array3[]);
+void Twodimen_OddEven_Matrix(u8 *OddArray_au8, u8 *EvenArray_au8, u8 Matrix_mu8[][SIZE], u8 *OddSize_u8, u8 *EvenSize_u8);
 
 int main()
 {
-    u8 i,j;
-    u8 Array[SIZE][SIZE] = {1,2,3,4,5,6,7,8,9};
-    u8 OddArraay[SIZE][SIZE];
-    u8 EvenArray[SIZE][SIZE];
+    u8 Jterator_u8;
+    u8 OddSize_u8 = 0U;
+    u8 EvenSize_u8 = 0U;
+    u8 Array[SIZE][SIZE] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    u8 OddArraay[SIZE * SIZE];
+    u8 EvenArray[SIZE * SIZE];
 
-    Twodimen_OddEven_Matrix(Array,OddArraay,EvenArray);
+    Twodimen_OddEven_Matrix(OddArraay,EvenArray, Array, &OddSize_u8, &EvenSize_u8);
 
- /*   for(i=0; i<SIZE; i++)
+    for(Jterator_u8 = 0U; Jterator_u8 < OddSize_u8; Jterator_u8++)
     {
-        for(j=0; j<SIZE; j++)
-        {
-            printf("Odd Matrix: %d   ", OddArraay[i][j]);
-            printf("Even Matrix: %d", EvenArray[i][j]);
-            printf("\n");
-        }
-    }*/
+        printf("Printing the values for Odd Array: %d\n", OddArraay[Jterator_u8]);
+    }
+
+    for(Jterator_u8 = 0U; Jterator_u8 < EvenSize_u8; Jterator_u8++)
+    {
+        printf("Printing the values for Even Array: %d\n", EvenArray[Jterator_u8]);
+    }
 
     return 0;
 }
 
-void Twodimen_OddEven_Matrix(u8 *Array1[], u8 *Array2[], u8 *Array3[])
+void Twodimen_OddEven_Matrix(u8 *OddArray_au8, u8 *EvenArray_au8, u8 Matrix_mu8[][SIZE], u8 *OSize_u8, u8 *ESize_u8)
 {
-    u8 i,j,k;
+    u8 Iterator_u8 =  SIZE * SIZE;
+    u8 *ptr = Matrix_mu8[0U];
 
-    while(i >= (SIZE * SIZE))
+    while(Iterator_u8)
     {
-        if((**Array1) & 1)
-        {
-            *Array2 = *Array1;
-            Array2++;
-        }
 
+        if(*ptr & 1)
+        {
+            *OSize_u8++;
+            *OddArray_au8 = *ptr;
+            printf("ptr ODD value: %d \n", *OddArray_au8);
+            OddArray_au8++;
+        }
         else
         {
-            *Array3 = *Array1;
-            Array3++;
+
+            *ESize_u8++;
+            *EvenArray_au8 = *ptr;
+            printf("ptr EVEN value: %d \n", *EvenArray_au8);
+            EvenArray_au8++;
         }
-        printf("%d  %d", i,*Array1);
-        i++;
-        Array1++;
 
+        Iterator_u8--;
+        ptr++;
     }
-
+    printf("El numero de Elemetnos impares es: %d\n", *OSize_u8);
+    printf("El numero de Elemetnos pares es: %d\n", *ESize_u8);
 }
